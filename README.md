@@ -36,8 +36,3 @@ npm run dev
 Após rodar o comando, acesse o projeto no navegador através do link gerado pelo Vite (exemplo: `http://localhost:5173`).
 
 ---
-
-## 📸 Imagens do Sistema (Working...) 🚧
-
-Em breve, imagens da aplicação em funcionamento! 🖼️✨
-
