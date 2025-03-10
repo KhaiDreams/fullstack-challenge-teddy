@@ -41,13 +41,21 @@
 
 @media (max-width: 768px) {
     .top-menu {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
     }
 
     .top-menu .flex {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
+        width: auto;
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: auto;
     }
 
     .top-menu .gap-3, .top-menu .gap-5 {
@@ -68,6 +76,7 @@
 
     .menu-icon {
         display: block;
+        margin-right: 10px;
     }
 
     .sidebar-menu {

@@ -62,7 +62,7 @@ export default function TopBar() {
 
     return (
         <div className="top-menu flex justify-content-between flex-wrap p-4">
-            <div className="flex justify-content-center flex-wrap gap-3">
+            <div className="logo-container flex align-items-center">
                 <img src="menu_btn.png" className="menu-icon" style={{ height: 50, cursor: 'pointer' }} onClick={toggleSidebar} />
                 <img src="teddy_logo.png" style={{ height: 50 }} />
             </div>
