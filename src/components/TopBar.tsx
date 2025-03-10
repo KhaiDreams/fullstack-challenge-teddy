@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useUser } from "../providers/UserContext";
 import { confirmDialog } from 'primereact/confirmdialog';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function TopBar() {
     const navigate = useNavigate();
@@ -25,9 +25,24 @@ export default function TopBar() {
         });
     }
 
-    const toggleSidebar = () => {
+    const toggleSidebar = (event: React.MouseEvent) => {
+        event.stopPropagation();
         setSidebarVisible(!sidebarVisible);
     }
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            const sidebar = document.querySelector('.sidebar-menu');
+            if (sidebar && !sidebar.contains(event.target as Node) && sidebarVisible) {
+                setSidebarVisible(false);
+            }
+        };
+
+        document.addEventListener('click', handleClickOutside);
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, [sidebarVisible]);
 
     return (
         <div className="top-menu flex justify-content-between flex-wrap p-4">

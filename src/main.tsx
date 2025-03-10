@@ -2,13 +2,13 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
-import "primereact/resources/themes/lara-light-blue/theme.css"; // Tema do PrimeReact
-import "primereact/resources/primereact.min.css"; // Estilos básicos do PrimeReact
-import "primeicons/primeicons.css"; // Ícones do PrimeIcons
-import "primeflex/primeflex.css"; // Utilitários CSS do PrimeFlex
-import "./index.css"; // Seu CSS global (opcional)
+import "primereact/resources/themes/lara-light-blue/theme.css";
+import "primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css";
+import "primeflex/primeflex.css";
+import "./index.css";
 import { ConfirmDialog } from 'primereact/confirmdialog';
-import './styles/TopBar.css'; // Import the TopBar styles
+import './styles/TopBar.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -16,3 +16,10 @@ createRoot(document.getElementById('root')!).render(
     <ConfirmDialog />
   </StrictMode>,
 );
+
+document.addEventListener('click', (event) => {
+  const sidebar = document.querySelector('.sidebar-menu');
+  if (sidebar && !sidebar.contains(event.target as Node) && sidebar.classList.contains('visible')) {
+    sidebar.classList.remove('visible');
+  }
+});
