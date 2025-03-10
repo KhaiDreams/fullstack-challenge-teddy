@@ -104,7 +104,7 @@ export default function CustomerList() {
         <>
             <Toast ref={toast} />
             <TopBar />
-            <div className="body-content">
+            <div className="body-content p-4">
                 <div className="flex justify-content-between flex-wrap">
                     <div className="py-3">
                         <b>{customers.length} </b>
@@ -123,7 +123,7 @@ export default function CustomerList() {
                 </div>
                 <div className="grid mt-1">
                     {filteredCustomers.map((customer: Customer) => (
-                        <div className="col-3" key={customer.id}>
+                        <div className="col-12 sm:col-6 md:col-4 lg:col-3" key={customer.id}>
                             <CustomerCard {...customer} edit={() => onEdit(customer)} remove={() => onDelete(customer)} select={() => onSelect(customer)} />
                         </div>
                     ))}
@@ -136,7 +136,7 @@ export default function CustomerList() {
             <Dialog
                 header={headerTitle[actionType]}
                 visible={visible}
-                style={{ width: '45vw' }}
+                style={{ width: '90vw', maxWidth: '45vw' }}
                 draggable={false}
                 onHide={() => { if (!visible) return; setVisible(false); }}>
                 {actionType === 'create' && <CreateCustomerForm onSuccess={onSuccess} onError={onError} />}
